@@ -31,7 +31,7 @@ jobs:
           pip install mkdocs-section-index
           pip install mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
       - name: Generate sitemap.xml
-        run: python generate_sitemap.py
+        run: python scripts/generate_sitemap.py
 
       - name: Generate scripts/writeups index
         run: python scripts/generate_Grid.py
