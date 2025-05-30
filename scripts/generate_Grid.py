@@ -16,7 +16,7 @@ for section in sections:
             with open(path, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
 
-                # لو فيه frontmatter
+                # Try frontmatter
                 if lines and lines[0].strip() == "---":
                     for i in range(1, len(lines)):
                         if lines[i].strip() == "---":
@@ -30,7 +30,6 @@ for section in sections:
                             except:
                                 pass
 
-                # fallback: أول heading
                 for line in lines:
                     if line.strip().startswith("# "):
                         title = line.strip()[2:].strip()
@@ -44,13 +43,18 @@ for section in sections:
 
     posts.sort(key=lambda x: x["date"], reverse=True)
 
-    # generate cards HTML
-    cards_html = f"\n{marker_start}\n<div class=\"md-grid\">\n"
+    # Cards-style HTML
+    cards_html = f"{marker_start}\n<div class=\"md-grid\">\n"
     for post in posts:
-        cards_html += f"""<div class="md-grid-item">
-### [{post['title']}]({post['file']})
-</div>\n"""
-    cards_html += "</div>\n" + marker_end + "\n"
+        cards_html += f"""
+<div class="card">
+  <a href="{post['file']}">
+    <strong>{post['title']}</strong><br>
+    <small>{post['date'].strftime('%Y-%m-%d') if post['date'] != datetime.min else ''}</small>
+  </a>
+</div>
+"""
+    cards_html += "\n</div>\n" + marker_end
 
     index_path = os.path.join(section, "index.md")
 
