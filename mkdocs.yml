@@ -33,6 +33,10 @@ theme:
     - content.action.edit
     - content.action.view
     - content.tooltips
+    - content.tabs.link
+    - content.tooltips
+    - content.footnotes
+    - content.social
     - navigation.footer
     - navigation.expand
     - navigation.tracking
@@ -80,6 +84,7 @@ extra:
       link: https://twitter.com/Omar_Samy7
     - icon: fontawesome/brands/medium
       link: https://medium.com/@OmarSamy7
+      image: /assets/profile.png
 
 
 nav:
