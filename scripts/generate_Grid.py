@@ -20,7 +20,6 @@ card_template = """
 </div>
 """
 
-# Extracts frontmatter and content from a Markdown file
 def extract_frontmatter(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -37,7 +36,6 @@ def extract_frontmatter(filepath):
 
     return frontmatter or {}, content
 
-# Generate index.md for all folders inside content_dir
 def generate_index_files(base_dir):
     for root, dirs, files in os.walk(base_dir):
         md_files = [f for f in files if f.endswith(".md") and f != index_filename]
@@ -71,9 +69,14 @@ def generate_index_files(base_dir):
             except:
                 sort_date = datetime.min
 
+            # Make link path: /folder/filename/ (without .md)
+            relative_path = os.path.relpath(filepath, base_dir)
+            link = "/" + os.path.splitext(relative_path)[0] + "/"
+            link = link.replace("\\", "/")  # for Windows compatibility
+
             cards.append({
                 "html": card_template.format(
-                    link=filename,
+                    link=link,
                     image=image,
                     title=title,
                     date=date_str,
@@ -92,7 +95,7 @@ def generate_index_files(base_dir):
             f.write(f"# {os.path.basename(root).capitalize()}\n\n")
             f.write(output_html)
 
-# Run the generator
+# Run it
 generate_index_files(content_dir)
 
-print("✅ All index.md files updated with cards.")
+print("✅ All index.md files updated with correct links.")
