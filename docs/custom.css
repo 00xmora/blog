@@ -110,3 +110,17 @@
 .md-sidebar--primary {
   padding-top: 0 !important;
 }
+
+
+.md-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.md-grid-item {
+  background: var(--md-default-bg-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
