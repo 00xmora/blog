@@ -1,77 +1,98 @@
 import os
+import yaml
 from datetime import datetime
 
-sections = ['docs/writeups', 'docs/research']
-marker_start = "<!-- POSTS_START -->"
-marker_end = "<!-- POSTS_END -->"
+# Base content directory
+content_dir = "docs"
+index_filename = "index.md"
 
-for section in sections:
-    posts = []
-    for file in os.listdir(section):
-        if file.endswith(".md") and file != "index.md":
-            path = os.path.join(section, file)
-            title = file.replace(".md", "").replace("-", " ").title()
-            date = None
-
-            with open(path, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
-
-                # Try frontmatter
-                if lines and lines[0].strip() == "---":
-                    for i in range(1, len(lines)):
-                        if lines[i].strip() == "---":
-                            break
-                        line = lines[i].strip()
-                        if line.startswith("title:"):
-                            title = line.split(":", 1)[1].strip()
-                        elif line.startswith("date:"):
-                            try:
-                                date = datetime.strptime(line.split(":", 1)[1].strip(), "%Y-%m-%d")
-                            except:
-                                pass
-
-                for line in lines:
-                    if line.strip().startswith("# "):
-                        title = line.strip()[2:].strip()
-                        break
-
-            posts.append({
-                "file": file,
-                "title": title,
-                "date": date or datetime.min
-            })
-
-    posts.sort(key=lambda x: x["date"], reverse=True)
-
-    # Cards-style HTML
-    cards_html = f"{marker_start}\n<div class=\"md-grid\">\n"
-    for post in posts:
-        cards_html += f"""
+# Template for each card
+card_template = """
 <div class="card">
-  <a href="{post['file']}">
-    <strong>{post['title']}</strong><br>
-    <small>{post['date'].strftime('%Y-%m-%d') if post['date'] != datetime.min else ''}</small>
+  <a href="{link}">
+    <img src="{image}" alt="{title}">
+    <div class="card-body">
+      <strong>{title}</strong><br>
+      <small>{date}</small>
+      <p>{summary}</p>
+    </div>
   </a>
 </div>
 """
-    cards_html += "\n</div>\n" + marker_end
 
-    index_path = os.path.join(section, "index.md")
+# Extracts frontmatter and content from a Markdown file
+def extract_frontmatter(filepath):
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.read().split('---')
+            if len(lines) >= 3:
+                frontmatter = yaml.safe_load(lines[1])
+                content = lines[2].strip()
+            else:
+                frontmatter = {}
+                content = lines[0].strip()
+    except Exception as e:
+        print(f"Error reading {filepath}: {e}")
+        return {}, ""
 
-    if os.path.exists(index_path):
-        with open(index_path, 'r', encoding='utf-8') as f:
-            content = f.read()
+    return frontmatter or {}, content
 
-        if marker_start in content and marker_end in content:
-            before = content.split(marker_start)[0]
-            after = content.split(marker_end)[1]
-            final = before + cards_html + after
-        else:
-            final = content.strip() + "\n\n" + cards_html
-    else:
-        final = f"# {section.split('/')[-1].capitalize()}\n\n" + cards_html
+# Generate index.md for all folders inside content_dir
+def generate_index_files(base_dir):
+    for root, dirs, files in os.walk(base_dir):
+        md_files = [f for f in files if f.endswith(".md") and f != index_filename]
+        if not md_files:
+            continue
 
-    with open(index_path, "w", encoding="utf-8") as f:
-        f.write(final)
+        cards = []
 
-    print(f"✅ Updated: {index_path}")
+        for filename in md_files:
+            filepath = os.path.join(root, filename)
+            frontmatter, content = extract_frontmatter(filepath)
+
+            # Title logic
+            title = frontmatter.get("title")
+            if not title:
+                for line in content.splitlines():
+                    if line.strip().startswith("#"):
+                        title = line.strip().lstrip("#").strip()
+                        break
+                if not title:
+                    title = os.path.splitext(filename)[0]
+
+            # Other metadata
+            date_str = frontmatter.get("date", "")
+            image = frontmatter.get("image", "/assets/images/default.png")
+            summary = frontmatter.get("summary", "")
+
+            # Parse date for sorting
+            try:
+                sort_date = datetime.strptime(date_str, "%Y-%m-%d")
+            except:
+                sort_date = datetime.min
+
+            cards.append({
+                "html": card_template.format(
+                    link=filename,
+                    image=image,
+                    title=title,
+                    date=date_str,
+                    summary=summary
+                ),
+                "sort_date": sort_date
+            })
+
+        # Sort cards by date descending
+        cards.sort(key=lambda x: x["sort_date"], reverse=True)
+        output_html = '<div class="md-grid">\n' + "\n".join(card["html"] for card in cards) + '\n</div>\n'
+
+        # Write the index.md
+        index_path = os.path.join(root, index_filename)
+        with open(index_path, 'w', encoding='utf-8') as f:
+            f.write(f"# {os.path.basename(root).capitalize()}\n\n")
+            f.write(output_html)
+
+# Run the generator
+generate_index_files(content_dir)
+
+print("✅ All index.md files updated with cards.")

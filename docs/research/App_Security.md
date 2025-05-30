@@ -1,7 +1,7 @@
 ---
 title: app security
 description: A detailed bug bounty writeup explaining how I bypassed OTP brute-force protection on PDFfiller using a rate-limiting flaw.
-image: /assets/writeups/pdf-otp.png
+image: /assets/research/pdf-otp.png
 
 date: 2025-05-28
 tags:
@@ -25,7 +25,7 @@ date: 2025-05-30
     - The goal is to **proactively reduce risks** through secure coding, proper design, and integrated security practices throughout the software development lifecycle.
     
     ---
-    
+
     ### Reactive vs. Proactive Approaches
     
     - **Penetration Testing** is reactive — identifies vulnerabilities after development.

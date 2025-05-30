@@ -111,4 +111,49 @@
   padding-top: 0 !important;
 }
 
+/* cards in grid */
 
+
+
+.card {
+  background: var(--md-default-bg-color);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin: 1rem;
+  transition: transform 0.2s ease;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 0.75rem;
+}
+
+.card-body strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.card-body small {
+  color: #888;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 0.25rem;
+}
