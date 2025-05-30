@@ -2,8 +2,8 @@ site_name: Omar's Pentest Cheatsheets
 site_description: 'Active Directory and Internal Pentest Cheatsheets'
 site_url: https://00xmora.github.io
 
-repo_url: https://github.com/yourusername
-edit_uri: blob/main/docs/
+# repo_url: https://github.com/yourusername
+# edit_uri: blob/main/docs/
 
 theme:
   name: material
@@ -12,23 +12,29 @@ theme:
   user_color_mode_toggle: true
   icon:
     repo: fontawesome/brands/github
+    logo: material/server-security
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+      primary: deep purple      
+      accent: deep orange 
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+      primary: deep purple      
+      accent: deep orange 
   features:
     - content.code.copy
     - content.action.edit
     - content.action.view
     - content.tooltips
     - navigation.footer
+    - navigation.expand
     - navigation.tracking
     - navigation.top
     - navigation.instant.preview
@@ -36,6 +42,7 @@ theme:
     - navigation.tabs
     - search.share
     - search.suggest
+
 
 extra_css:
   - custom.css
@@ -73,3 +80,9 @@ extra:
     - icon: fontawesome/brands/medium
       link: https://medium.com/@OmarSamy7
 
+
+nav:
+  - Home: /
+  - Writeups: writeups/
+  - Research & things: research/
+  - About: about/

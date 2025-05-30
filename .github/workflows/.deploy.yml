@@ -33,5 +33,8 @@ jobs:
       - name: Generate sitemap.xml
         run: python generate_sitemap.py
 
+      - name: Generate scripts/writeups index
+        run: python scripts/generate_Grid.py
+
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force

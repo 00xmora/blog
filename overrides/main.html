@@ -2,6 +2,7 @@
 
 {% block content %}
   {{ super() }}
+
   <div class="social-container">
     <b>Share this content:</b>
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -14,15 +15,7 @@
     </div>
     <script async src="https://static.addtoany.com/menu/page.js"></script>
   </div>
+
   <script defer src="https://cloud.umami.is/script.js" data-website-id="49aad71c-7d98-4635-8bd5-b6799c8874f8"></script>
 {% endblock %}
 
-{% block styles %}
-  {{ super() }}
-  <style>
-    .social-container {
-      float: right;
-      margin-top: 1rem;
-    }
-  </style>
-{% endblock %}
