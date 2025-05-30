@@ -1,0 +1,58 @@
+/* === Header Styling === */
+.md-header {
+    background: linear-gradient(90deg, #5c258d, #4389a2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* === Grid & Sidebar Responsive Fixes === */
+@media screen and (min-width: 790px) {
+    .md-grid {
+        max-width: 100%;
+    }
+
+    .md-sidebar {
+        width: auto;
+    }
+}
+
+/* === Scrollbar Fix for Chrome Browsers === */
+@supports selector(::-webkit-scrollbar) {
+    .md-sidebar__scrollwrap {
+        scrollbar-gutter: auto;
+    }
+
+    [dir=ltr] .md-sidebar__inner {
+        padding-right: 0;
+    }
+
+    [dir=rtl] .md-sidebar__inner {
+        padding-left: calc(100% - 11.5rem);
+    }
+}
+
+/* === Sidebar and Title Enhancements === */
+.md-ellipsis {
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* === Improve Links and Hover === */
+.md-nav__link {
+    transition: background 0.2s ease-in-out, color 0.2s;
+}
+
+.md-nav__link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #5c258d;
+}
+
+/* === Optional: Dark Mode Enhancements === */
+[data-md-color-scheme="slate"] .md-header {
+    background: linear-gradient(90deg, #2c3e50, #4ca1af);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #4ca1af;
+}
