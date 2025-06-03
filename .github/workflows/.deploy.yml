@@ -35,6 +35,10 @@ jobs:
 
       - name: Generate scripts/writeups index
         run: python scripts/generate_Grid.py
+      
+      - name: Install system dependencies (for CairoSVG)
+        run: sudo apt-get update && sudo apt-get install -y libcairo2
+
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force

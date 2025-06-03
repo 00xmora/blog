@@ -1,7 +1,7 @@
 ---
 title: Welcome
 description: Research and writeups on Personal blog and knowledge base of Omar Samy, cybersecurity enthusiast and penetration tester.
-image: /assets/images/og-cover.png  # for social sharing
+image: http://127.0.0.1:8000/assets/images/og-cover.png  # for social sharing
 ---
 
 # Research and writeups on web security, bug bounty, and some challenges/CTF’s.
@@ -22,4 +22,4 @@ This blog is my personal space to share:
 
 ## About Me
 
-For more details about me, check the [About page](about.md).
+For more details about me, check the [About page](about).

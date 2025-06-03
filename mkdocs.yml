@@ -72,6 +72,14 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date-localized
+  - meta
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#1e1e2f"
+        color: "#ffffff"
+        logo: assets/logo.png
+
 
 
 extra:
