@@ -1,16 +1,9 @@
 # Research
 
-<div class="md-grid">
+This section includes my research notes, experiments, and deep dives into topics related to cybersecurity, application security, and offensive techniques.
 
-<div class="card">
-  <a href="/research/App_Security/">
-    <img src="/assets/research/pdf-otp.png" alt="app security">
-    <div class="card-body">
-      <strong>app security</strong><br>
-      <small>2025-05-30</small>
-      <p></p>
-    </div>
-  </a>
-</div>
+<!-- CARDS:START -->
+<!-- CARDS:END -->
 
-</div>
+All research shared here is for educational purposes only and reflects personal exploration, analysis, and findings.
+

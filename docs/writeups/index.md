@@ -1,28 +1,10 @@
 # Writeups
 
-<div class="md-grid">
+Welcome to the writeups section.  
+Here you’ll find detailed reports and walkthroughs of the challenges I’ve solved, including CTFs, real-world vulnerabilities, and practical security scenarios.
 
-<div class="card">
-  <a href="/writeups/1/">
-    <img src="/assets/images/default.png" alt="1">
-    <div class="card-body">
-      <strong>1</strong><br>
-      <small></small>
-      <p></p>
-    </div>
-  </a>
-</div>
+<!-- CARDS:START -->
+<!-- CARDS:END -->
 
+New posts are added regularly. Stay curious and hack responsibly.
 
-<div class="card">
-  <a href="/writeups/2/">
-    <img src="/assets/images/default.png" alt="2">
-    <div class="card-body">
-      <strong>2</strong><br>
-      <small></small>
-      <p></p>
-    </div>
-  </a>
-</div>
-
-</div>

@@ -1,14 +1,12 @@
 ---
 title: app security
 description: A detailed bug bounty writeup explaining how I bypassed OTP brute-force protection on PDFfiller using a rate-limiting flaw.
-image: /assets/research/pdf-otp.png
 date: 2025-05-28
 tags:
-
-- bug bounty
-- 2fa
-- rate limiting
-- web security
+    - bug bounty
+    - 2fa
+    - rate limiting
+    - web security
 date: 2025-05-30
 ---
 
