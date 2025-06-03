@@ -3,7 +3,7 @@ title: Welcome
 description: Personal blog and knowledge base of Omar Samy — cybersecurity enthusiast and penetration tester. Sharing research, writeups, and notes on application security.
 social:
   cards_layout_options:
-    background_image: assets/images/profile.png
+    background_image: /assets/images/social_logo.png
     background_color: transparent
 ---
 

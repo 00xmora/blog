@@ -1,6 +1,7 @@
 import os
 import yaml
 from datetime import datetime
+import re
 
 # Base content directory
 content_dir = "docs"
@@ -19,6 +20,18 @@ card_template = """
   </a>
 </div>
 """
+
+def slugify(text):
+    # تحول النص لـ lowercase
+    text = text.lower()
+    # تشيل أي حاجة مش حرف أو رقم أو مسافة
+    text = re.sub(r'[^\w\s-]', '', text)
+    # تستبدل المسافات والـ _ بـ "-"
+    text = re.sub(r'[\s_]+', '-', text)
+    return text
+
+
+
 
 # Extract frontmatter from markdown file
 def extract_frontmatter(filepath):
@@ -64,7 +77,7 @@ def generate_index_files(base_dir):
             date_str = frontmatter.get("date", "")
             summary = frontmatter.get("summary", "")
 
-            filename_base = os.path.splitext(filename)[0]
+            filename_base = slugify(os.path.splitext(filename)[0])
             default_image = f"/assets/images/social/{filename_base}.png"
             image = frontmatter.get("image", default_image)
 
@@ -76,9 +89,10 @@ def generate_index_files(base_dir):
 
             # Make link path
             relative_path = os.path.relpath(filepath, base_dir)
-            link = "/" + os.path.splitext(relative_path)[0] + "/"
+            filename_base = slugify(os.path.splitext(os.path.basename(filepath))[0])
+            folder = os.path.dirname(relative_path).replace("\\", "/")
+            link = "/" + (folder + "/" if folder else "") + filename_base + "/"
             link = link.replace("\\", "/")
-
             cards.append({
                 "html": card_template.format(
                     link=link,
