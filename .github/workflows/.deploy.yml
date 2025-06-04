@@ -43,9 +43,5 @@ jobs:
       - name: Build the site
         run: mkdocs build
 
-      - name: Inject OG image meta tag in homepage
-        run: |
-          sed -i '/<head>/a <meta property="og:image" content="/assets/images/social_logo.png" />' site/index.html
-
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force

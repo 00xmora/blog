@@ -1,7 +1,7 @@
 # Omar Samy | Cybersecurity Blog
 
 <p align="center">
-  <img alt="Cybersecurity Banner" src="https://00xmora.github.io/assets/images/social_logo.png" width="600">
+  <img alt="Cybersecurity Banner" src="https://00xmora.github.io/assets/images/social_logo.png" width="500" height="300">
 </p>
 
 Welcome to the repository for my personal blog, hosted at [https://00xmora.github.io/](https://00xmora.github.io/). This blog is a space to share my findings, research, and practical experience in cybersecurity, focusing on penetration testing, bug bounty, capture-the-flag (CTF) challenges, and more. The site is built using [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
@@ -74,10 +74,6 @@ Contributions are welcome, especially for improving writeups, adding new content
 
 Please ensure your contributions align with the blog’s focus on cybersecurity and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact
 
-Reach out to me on [X (Twitter)](https://x.com/your-username) or via email at [your-email@example.com] for questions, feedback, or collaboration.
+Reach out to me on [X (Twitter)](https://x.com/00xmora) or via email at [omarsselim00@gmail.com] for questions, feedback, or collaboration.
