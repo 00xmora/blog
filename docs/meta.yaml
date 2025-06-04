@@ -1,0 +1,7 @@
+title: Welcome
+description: Personal blog and knowledge base of Omar Samy — cybersecurity enthusiast and penetration tester.
+social:
+  image: /assets/images/social_logo.png
+  cards_layout_options:
+    background_image: /assets/images/social_logo.png
+    background_color: transparent
