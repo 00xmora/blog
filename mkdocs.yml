@@ -74,7 +74,6 @@ plugins:
   - social:
       cards: true
       cards_layout_options:
-        background_image: /assets/images/social_logo.png
         color: "#ffffff"
         font_family: Bebas Neue
         logo: assets/images/logo.png
@@ -89,4 +88,4 @@ nav:
 
 
 extra:
-  favicon: assets/images/favicon.png
+  favicon: assets/images/logo.png
