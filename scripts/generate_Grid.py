@@ -22,15 +22,9 @@ card_template = """
 """
 
 def slugify(text):
-    # تحول النص لـ lowercase
-    text = text.lower()
-    # تشيل أي حاجة مش حرف أو رقم أو مسافة
     text = re.sub(r'[^\w\s-]', '', text)
-    # تستبدل المسافات والـ _ بـ "-"
     text = re.sub(r'[\s_]+', '-', text)
     return text
-
-
 
 
 # Extract frontmatter from markdown file
