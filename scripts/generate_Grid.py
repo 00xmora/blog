@@ -78,7 +78,8 @@ def generate_index_files(base_dir):
             summary = frontmatter.get("summary", "")
 
             filename_base = slugify(os.path.splitext(filename)[0])
-            default_image = f"/assets/images/social/{filename_base}.png"
+            folder_slug = os.path.basename(os.path.dirname(filepath))
+            default_image = f"/assets/images/social/{folder_slug}/{filename_base}.png"
             image = frontmatter.get("image", default_image)
 
             # Parse date for sorting
