@@ -1,28 +1,83 @@
-# Internal All The Things
-
-Active Directory and Internal Pentest Cheatsheets
-
-An alternative display version is available at [Internal All The Things - Web version](https://swisskyrepo.github.io/InternalAllTheThings/).
+# Omar Samy | Cybersecurity Blog
 
 <p align="center">
-  <img alt="banner" src="https://raw.githubusercontent.com/swisskyrepo/InternalAllTheThings/master/assets/banner.png">
+  <img alt="Cybersecurity Banner" src="https://00xmora.github.io/assets/images/social_logo.png" width="600">
 </p>
 
-## 📖 Documentation
+Welcome to the repository for my personal blog, hosted at [https://00xmora.github.io/](https://00xmora.github.io/). This blog is a space to share my findings, research, and practical experience in cybersecurity, focusing on penetration testing, bug bounty, capture-the-flag (CTF) challenges, and more. The site is built using [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
-* Feel free to update any pages with your knowledge by submitting a Pull Request
-* Content in this repository is provided as is, for learning purpose. The author and contributors take no responsibility if you break something.
+## Features
 
-## 👨‍💻 Contributions
+- **Cybersecurity Content**: Writeups on web security, bug bounty, CTFs, and penetration testing techniques.
+- **Technical Guides**: Notes from courses, certifications, and curated cheatsheets.
+- **Projects & Experiments**: Documentation of home lab setups and cybersecurity projects.
+- **Responsive Design**: Built with Material for MkDocs for a clean, mobile-friendly experience.
+- **Search Functionality**: Easy navigation through blog content.
 
-<p align="center">
-<a href="https://github.com/swisskyrepo/InternalAllTheThings/graphs/contributors">
-  <img alt="contributors-list" src="https://contrib.rocks/image?repo=swisskyrepo/InternalAllTheThings&max=36">
-</a>
-</p>
+## Prerequisites
 
-Thanks again for your contribution! :heart:
+To run or contribute to this blog locally, ensure you have the following installed:
+- [Python](https://www.python.org/) (version 3.7 or higher)
+- [MkDocs](https://www.mkdocs.org/) with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+- [Git](https://git-scm.com/)
 
-You can also share the project and contribute with a Github Sponsorship.
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Internal%20All%20The%20Things,%20a%20list%20of%20useful%20payloads%20and%20bypasses%20for%20Internal%20Security%20Assessments-%20by%20@pentest_swissky&url=https://github.com/swisskyrepo/InternalAllTheThings)
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/sponsors/swisskyrepo)](https://github.com/sponsors/swisskyrepo)
+## Setup Instructions
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/00xmora/00xmora.github.io.git
+   cd 00xmora.github.io
+   ```
+
+2. **Install Dependencies**:
+   Install MkDocs and Material for MkDocs:
+   ```bash
+   pip install mkdocs mkdocs-material
+   ```
+
+3. **Run Locally**:
+   Start the development server:
+   ```bash
+   mkdocs serve
+   ```
+   Open your browser to `http://localhost:8000` to preview the blog.
+
+4. **Deploy**:
+   Build the site and push to the `gh-pages` branch:
+   ```bash
+   mkdocs gh-deploy
+   ```
+   The site will be deployed to https://00xmora.github.io/.
+
+## Project Structure
+
+```
+00xmora.github.io/
+├── docs/                 # Markdown files for blog content
+│   ├── writeups/         # Blog posts for CTF and bug bounty writeups
+│   ├── research/         # Research and technical guides
+│   └── about.md          # About page content
+├── mkdocs.yml            # MkDocs configuration file
+├── assets/               # Static assets (images, CSS, JS)
+└── README.md             # This file
+```
+
+## Contributing
+
+Contributions are welcome, especially for improving writeups, adding new content, or enhancing the site’s design. To contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Add or edit Markdown files in the `docs/` directory or modify the theme in `mkdocs.yml`.
+4. Commit your changes (`git commit -m "Add your feature"`).
+5. Push to your branch (`git push origin feature/your-feature`).
+6. Open a pull request.
+
+Please ensure your contributions align with the blog’s focus on cybersecurity and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+Reach out to me on [X (Twitter)](https://x.com/your-username) or via email at [your-email@example.com] for questions, feedback, or collaboration.
