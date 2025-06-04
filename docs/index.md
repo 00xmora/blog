@@ -5,7 +5,6 @@ social:
   image: /assets/images/social_logo.png
   cards_layout_options:
     background_image: /assets/images/social_logo.png
-    background_color: transparent
 ---
 
 # Research and writeups on web security, bug bounty, and CTFs.
