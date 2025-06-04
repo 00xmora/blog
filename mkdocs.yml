@@ -2,7 +2,7 @@ site_name: Omar Samy | Cybersecurity Blog & things
 site_description: Research, writeups, and practical notes on web security, pentesting, and more.
 site_url: https://00xmora.github.io
 
-repo_url: https://github.com/00xmora
+repo_url: https://github.com/00xmora/00xmora.github.io
 
 theme:
   name: material
@@ -75,9 +75,11 @@ plugins:
       cards: true
       cards_layout_options:
         background_color: "#1e1e2f"
+        background_image: assets/images/social_logo.png
         color: "#ffffff"
         font_family: Bebas Neue
         logo: assets/images/logo.png
+
 
 
 nav:
@@ -85,3 +87,7 @@ nav:
   - Writeups: writeups/
   - Research & things: research/
   - About: about/
+
+
+extra:
+  favicon: assets/images/logo.png
