@@ -117,5 +117,4 @@ The issue was marked **Informative** due to limited security impact in this cont
 
 Thanks for reading!
 
-```
-```
+---
