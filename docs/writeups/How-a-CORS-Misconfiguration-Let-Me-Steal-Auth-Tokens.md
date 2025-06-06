@@ -1,6 +1,6 @@
 ---
 title: Auth Token Theft via CORS Misconfiguration
-description: A critical CORS misconfiguration allowed stealing authentication tokens by abusing a wildcard-like origin match and Access-Control-Allow-Credentials: true.
+description: "A critical CORS misconfiguration allowed stealing authentication tokens by abusing a wildcard-like origin match and Access-Control-Allow-Credentials: true."
 date: 2025-03-08
 tags:
   - cors
