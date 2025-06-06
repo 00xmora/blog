@@ -10,6 +10,7 @@ tags:
   - web-security
 ---
 
+
 # How a CORS Misconfiguration Could Have Let Me Steal Auth Tokens
 
 In this post, I’ll walk you through a **CORS misconfiguration vulnerability** I discovered that allowed me to **steal authentication tokens**, **impersonate users**, and access sensitive data — all with a few lines of JavaScript. This bug stemmed from a subtle but dangerous CORS policy misconfiguration.
