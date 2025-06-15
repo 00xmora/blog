@@ -170,8 +170,12 @@ def generate_index_files(base_dir):
                 existing_content = f.read()
 
         if start_marker in existing_content and end_marker in existing_content:
-            before = existing_content.split(start_marker)[0]
-            after = existing_content.split(end_marker)[1]
+            # Use find and slicing instead of split to avoid 'empty separator' ValueError
+            start_index = existing_content.find(start_marker)
+            end_index = existing_content.find(end_marker)
+
+            before = existing_content[:start_index]
+            after = existing_content[end_index + len(end_marker):]
             new_content = f"{before}{start_marker}\n{cards_html}\n{end_marker}{after}"
         else:
             # If markers not found, either add them or create a new file
