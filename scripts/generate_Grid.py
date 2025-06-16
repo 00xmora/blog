@@ -1,6 +1,6 @@
 import os
 import yaml
-from datetime import datetime
+import datetime
 import re
 
 content_dir = "docs"
