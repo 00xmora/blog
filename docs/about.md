@@ -1,3 +1,5 @@
+![profile](/assets/images/profile.png)
+
 # About
 
 ## Omar Samy  
