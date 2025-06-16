@@ -1,4 +1,4 @@
-![profile](/assets/images/profile.png)
+<img src="/assets/images/profile.png" alt="profile" style="width: 100px; height: 100px; border-radius: 50%;">
 
 # About
 

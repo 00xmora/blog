@@ -99,9 +99,9 @@ plugins:
 nav:
   - Home: index.md
   - Writeups:
-      - Overview: writeups/index.md
+      - Main: writeups/index.md
       - Android: 
-          - hextree labs soliutions: writeups/android/hextree-labs-soliutions/index.md
+          - hextree labs soliutions: writeups/android/hextree-labs-solutions/index.md
   - Research: research/index.md
   - About: about.md
 
