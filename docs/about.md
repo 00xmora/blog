@@ -1,4 +1,4 @@
-<img src="/assets/images/profile.png" alt="profile" style="width: 100px; height: 100px; border-radius: 50%;">
+<img src="/assets/images/profile.png" alt="profile" style="width: 150px; height: 150px; border-radius: 50%;">
 
 # About
 

@@ -5,6 +5,7 @@ image: /assets/images/social_logo.png
 background_image: /assets/images/social_logo.png
 ---
 
+<img src="/assets/images/profile.png" alt="profile" style="width: 150px; height: 150px; border-radius: 50%;">
 # Research and writeups on web security, bug bounty, and CTFs.
 
 This is where I document my findings, research, and practical experience in cybersecurity.  

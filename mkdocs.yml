@@ -102,7 +102,9 @@ nav:
       - Main: writeups/index.md
       - Android: 
           - hextree labs soliutions: writeups/android/hextree-labs-solutions/index.md
-  - Research: research/index.md
+  - Research:
+      - Main: research/index.md
+      - web: research/web/index.md
   - About: about.md
 
 extra:
