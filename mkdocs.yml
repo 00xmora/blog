@@ -85,6 +85,10 @@ plugins:
   - search
   - git-revision-date-localized
   - meta
+  - sitemap:
+      changefreq: daily
+      priority: 0.5
+  - seo
 
   - minify:
       minify_html: true
@@ -122,3 +126,7 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/00xmora
       name: LinkedIn
+  robots: |
+    User-agent: *
+    Allow: /
+    Sitemap: https://00xmora.github.io/sitemap.xml
