@@ -66,6 +66,8 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
+  - toc:
+      permalink: true
 
 plugins:
   - search
@@ -77,6 +79,17 @@ plugins:
         color: "#ffffff"
         font_family: Bebas Neue
         logo: assets/images/logo.png
+  - minify:
+      minify_html: true
+  - sitemap
+
+  - blogging:
+      post_dir: 'writeups/'  # Folder containing your posts
+      post_filename: 'index.md'  # Each post is a folder with index.md
+      archive: true  # Generates an archive page
+      pagination: 10  # Posts per page
+      feed: true  # RSS feed
+      social: true  # OpenGraph/Twitter cards
 
 
 

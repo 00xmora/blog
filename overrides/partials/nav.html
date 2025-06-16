@@ -1,64 +1,24 @@
-<!-- Custom Profile Sidebar -->
-<div class="profile-sidebar" style="padding: 1rem; text-align: center;">
-  <img src="/assets/images/profile.png" alt="Omar Samy" style="width: 80px; border-radius: 50%;">
-  <p style="margin-top: 0.5rem; font-weight: bold;">Omar Samy</p>
-  <div class="social-icons" style="margin-top: 0.5rem;">
-    <a href="https://github.com/00xmora" target="_blank" title="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://twitter.com/00xmora" target="_blank" title="Twitter">
-      <i class="fab fa-x-twitter"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/00xmora" target="_blank" title="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </div>
-</div>
-
-{% import "partials/nav-item.html" as item with context %}
-
-<!-- Determine classes -->
-{% set class = "md-nav md-nav--primary" %}
-{% if "navigation.tabs" in features %}
-  {% set class = class ~ " md-nav--lifted" %}
-{% endif %}
-{% if "toc.integrate" in features %}
-  {% set class = class ~ " md-nav--integrated" %}
-{% endif %}
-
-<!-- Navigation -->
-<nav
-  class="{{ class }}"
-  aria-label="{{ lang.t('nav') }}"
-  data-md-level="0"
->
-
-  <!-- Site title -->
-  <label class="md-nav__title" for="__drawer">
-    <a
-      href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
-      title="{{ config.site_name | e }}"
-      class="md-nav__button md-logo"
-      aria-label="{{ config.site_name }}"
-      data-md-component="logo"
-    >
-      {% include "partials/logo.html" %}
-    </a>
-    {{ config.site_name }}
-  </label>
-
-  <!-- Repository information -->
-  {% if config.repo_url %}
-    <div class="md-nav__source">
-      {% include "partials/source.html" %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Sidebar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="profile-sidebar">
+    <img src="/assets/images/profile.png" alt="Omar Samy">
+    <p>Omar Samy</p>
+    <div class="social-icons">
+      <a href="https://github.com/00xmora" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com/00xmora" target="_blank" title="Twitter">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/00xmora" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
     </div>
-  {% endif %}
+  </div>
+</body>
 
-  <!-- Navigation list -->
-  <ul class="md-nav__list" data-md-scrollfix>
-    {% for nav_item in nav %}
-      {% set path = "__nav_" ~ loop.index %}
-      {{ item.render(nav_item, path, 1) }}
-    {% endfor %}
-  </ul>
-</nav>
