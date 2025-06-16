@@ -96,8 +96,6 @@ plugins:
         font_family: Bebas Neue
         logo: assets/images/logo.png
 
-
-
 nav:
   - Home: index.md
   - Writeups:
@@ -106,9 +104,6 @@ nav:
           - hextree labs soliutions: writeups/android/hextree-labs-soliutions/index.md
   - Research: research/index.md
   - About: about.md
-
-
-
 
 extra:
   favicon: assets/images/logo.png

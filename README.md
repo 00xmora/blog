@@ -14,40 +14,6 @@ Welcome to the repository for my personal blog, hosted at [https://00xmora.githu
 - **Responsive Design**: Built with Material for MkDocs for a clean, mobile-friendly experience.
 - **Search Functionality**: Easy navigation through blog content.
 
-## Prerequisites
-
-To run or contribute to this blog locally, ensure you have the following installed:
-- [Python](https://www.python.org/) (version 3.7 or higher)
-- [MkDocs](https://www.mkdocs.org/) with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
-- [Git](https://git-scm.com/)
-
-## Setup Instructions
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/00xmora/00xmora.github.io.git
-   cd 00xmora.github.io
-   ```
-
-2. **Install Dependencies**:
-   Install MkDocs and Material for MkDocs:
-   ```bash
-   pip install mkdocs mkdocs-material
-   ```
-
-3. **Run Locally**:
-   Start the development server:
-   ```bash
-   mkdocs serve
-   ```
-   Open your browser to `http://localhost:8000` to preview the blog.
-
-4. **Deploy**:
-   Build the site and push to the `gh-pages` branch:
-   ```bash
-   mkdocs gh-deploy
-   ```
-   The site will be deployed to https://00xmora.github.io/.
 
 ## Project Structure
 
@@ -72,8 +38,7 @@ Contributions are welcome, especially for improving writeups, adding new content
 5. Push to your branch (`git push origin feature/your-feature`).
 6. Open a pull request.
 
-Please ensure your contributions align with the blog’s focus on cybersecurity and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Contact
 
-Reach out to me on [X (Twitter)](https://x.com/00xmora) or via email at [omarsselim00@gmail.com] for questions, feedback, or collaboration.
+Reach out to me on [X (Twitter)](https://x.com/00xmora) or via email at [omarsselim00@gmail.com](mailto:omarsselim00@gmail.com) for questions, feedback, or collaboration.

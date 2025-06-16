@@ -8,7 +8,7 @@ background_image: /assets/images/social_logo.png
 # Research and writeups on web security, bug bounty, and CTFs.
 
 This is where I document my findings, research, and practical experience in cybersecurity.  
-Feel free to reach out on [X (Twitter)](https://twitter.com/00xmora) or by email if you'd like to connect.
+Feel free to reach out on [X (Twitter)](https://twitter.com/00xmora) or by email if needed [omarsselim00@gmail.com](mailto:omarsselim00@gmail.com).
 
 ---
 
