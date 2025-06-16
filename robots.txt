@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://00xmora.github.io/sitemap.xml
