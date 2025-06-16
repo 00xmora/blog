@@ -1,12 +1,12 @@
 import os
 import yaml
-import datetime
 import re
+from datetime import datetime, date
 
 content_dir = "docs"
 index_filename = "index.md"
 
-# New template: Simple list without images
+# HTML template for each article card
 list_template = """
 <div class="article-list">
   <a href="{link}" class="article-link">
@@ -28,59 +28,63 @@ def slugify(text):
 def extract_frontmatter(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            lines = f.read().split('---')
-            if len(lines) >= 3:
-                frontmatter = yaml.safe_load(lines[1])
-                content = lines[2].strip()
-            else:
-                frontmatter = {}
-                content = lines[0].strip()
+            content = f.read()
+        parts = content.split('---')
+        if len(parts) >= 3:
+            frontmatter = yaml.safe_load(parts[1])
+            body = parts[2].strip()
+        else:
+            frontmatter = {}
+            body = content.strip()
+        return frontmatter or {}, body
     except Exception as e:
         print(f"Error reading {filepath}: {e}")
         return {}, ""
-    return frontmatter or {}, content
 
 def generate_index_files(base_dir):
     for root, dirs, files in os.walk(base_dir):
-        # Skip directories without markdown files (except for their own index.md)
         md_files = [f for f in files if f.endswith(".md") and f != index_filename]
-        if not md_files and not any(d for d in dirs if os.path.exists(os.path.join(root, d, index_filename))):
+        if not md_files and not any(os.path.exists(os.path.join(root, d, index_filename)) for d in dirs):
             continue
 
         items = []
 
-        # Process subdirectories first (for nested structure)
+        # Handle subfolders first
         for dirname in dirs:
             dirpath = os.path.join(root, dirname)
             dir_index = os.path.join(dirpath, index_filename)
-            
+
             if os.path.exists(dir_index):
                 frontmatter, _ = extract_frontmatter(dir_index)
                 title = frontmatter.get("title", dirname.replace("-", " ").title())
-                date = frontmatter.get("date", "")
+                date_value = frontmatter.get("date", "")
                 summary = frontmatter.get("summary", f"Articles about {title}")
                 read_time = frontmatter.get("read_time", "")
+
                 relative_path = os.path.relpath(dirpath, base_dir).replace("\\", "/")
+                if isinstance(date_value, date):
+                    sort_date = datetime.combine(date_value, datetime.min.time())
+                elif isinstance(date_value, str) and date_value:
+                    sort_date = datetime.strptime(date_value, "%Y-%m-%d")
+                else:
+                    sort_date = datetime(1, 1, 1)
+
                 items.append({
                     "html": list_template.format(
-                        link = f"/{relative_path}/",
+                        link=f"/{relative_path}/",
                         title=title,
                         read_time=read_time,
-                        date=date,
+                        date=date_value,
                         summary=summary
                     ),
-                    "sort_date": datetime.combine(date, datetime.min.time()) if isinstance(date, datetime.date) else (
-                    datetime.strptime(date, "%Y-%m-%d") if isinstance(date, str) and date else datetime.min
-                    )
-
+                    "sort_date": sort_date
                 })
 
-        # Process markdown files
+        # Handle individual markdown files
         for filename in md_files:
             filepath = os.path.join(root, filename)
             frontmatter, content = extract_frontmatter(filepath)
 
-            # Title logic
             title = frontmatter.get("title")
             if not title:
                 for line in content.splitlines():
@@ -90,38 +94,41 @@ def generate_index_files(base_dir):
                 if not title:
                     title = os.path.splitext(filename)[0].replace("-", " ").title()
 
-            # Metadata
-            date_str = frontmatter.get("date", "")
+            date_value = frontmatter.get("date", "")
             summary = frontmatter.get("summary", "")
             read_time = frontmatter.get("read_time", "")
 
-            # Make link path
-            relative_path = os.path.relpath(filepath, base_dir)
+            relative_path = os.path.relpath(filepath, base_dir).replace("\\", "/")
             filename_base = slugify(os.path.splitext(filename)[0])
             folder = os.path.dirname(relative_path).replace("\\", "/")
-            link = "/" + (folder + "/" if folder else "") + filename_base + "/"
+            link = f"/{folder + '/' if folder else ''}{filename_base}/"
 
-            try:
-                sort_date = datetime.strptime(date_str, "%Y-%m-%d")
-            except:
-                sort_date = datetime.min
+            if isinstance(date_value, date):
+                sort_date = datetime.combine(date_value, datetime.min.time())
+            elif isinstance(date_value, str) and date_value:
+                try:
+                    sort_date = datetime.strptime(date_value, "%Y-%m-%d")
+                except:
+                    sort_date = datetime(1, 1, 1)
+            else:
+                sort_date = datetime(1, 1, 1)
 
             items.append({
                 "html": list_template.format(
                     link=link,
                     title=title,
                     read_time=read_time,
-                    date=date_str,
+                    date=date_value,
                     summary=summary
                 ),
                 "sort_date": sort_date
             })
 
-        # Sort by date (newest first)
+        # Sort by date descending
         items.sort(key=lambda x: x["sort_date"], reverse=True)
         items_html = '<div class="article-container">\n' + "\n".join(item["html"] for item in items) + '\n</div>'
 
-        # Update index.md
+        # Inject into index.md
         start_marker = "<!-- ARTICLES:START -->"
         end_marker = "<!-- ARTICLES:END -->"
         index_path = os.path.join(root, index_filename)
@@ -131,13 +138,14 @@ def generate_index_files(base_dir):
                 existing_content = f.read()
 
             if start_marker in existing_content and end_marker in existing_content:
-                new_content = existing_content.replace(
+                new_content = re.sub(
                     f"{start_marker}.*?{end_marker}",
                     f"{start_marker}\n{items_html}\n{end_marker}",
+                    existing_content,
                     flags=re.DOTALL
                 )
             else:
-                new_content = f"# {os.path.basename(root).capitalize()}\n\n{start_marker}\n{items_html}\n{end_marker}\n"
+                new_content = existing_content + f"\n\n{start_marker}\n{items_html}\n{end_marker}\n"
         else:
             new_content = f"# {os.path.basename(root).capitalize()}\n\n{start_marker}\n{items_html}\n{end_marker}\n"
 
