@@ -1,14 +1,11 @@
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Sidebar</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-  <div class="profile-sidebar">
-    <img src="/assets/images/profile.png" alt="Omar Samy">
+{% extends "partials/nav.html" %}
+
+{% block nav %}
+  <!-- الجزء بتاعك فوق الـ nav -->
+  <div class="profile-sidebar" style="padding: 1rem; text-align: center;">
+    <img src="/assets/images/profile.png" alt="Omar Samy" style="width: 80px; border-radius: 50%; margin-bottom: 0.5rem;">
     <p>Omar Samy</p>
-    <div class="social-icons">
+    <div class="social-icons" style="margin-top: 0.5rem;">
       <a href="https://github.com/00xmora" target="_blank" title="GitHub">
         <i class="fab fa-github"></i>
       </a>
@@ -20,5 +17,7 @@
       </a>
     </div>
   </div>
-</body>
 
+  <!-- الـ nav الأصلي -->
+  {{ super() }}
+{% endblock %}
