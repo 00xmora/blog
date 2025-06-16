@@ -60,10 +60,10 @@ def generate_index_files(base_dir):
                 date = frontmatter.get("date", "")
                 summary = frontmatter.get("summary", f"Articles about {title}")
                 read_time = frontmatter.get("read_time", "")
-                
+                relative_path = os.path.relpath(dirpath, base_dir).replace("\\", "/")
                 items.append({
                     "html": list_template.format(
-                        link=f"/{os.path.relpath(dirpath, base_dir).replace('\\', '/')}/",
+                        link = f"/{relative_path}/",
                         title=title,
                         read_time=read_time,
                         date=date,
