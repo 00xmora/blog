@@ -85,7 +85,6 @@ plugins:
   - search
   - git-revision-date-localized
   - meta
-  - seo
 
   - minify:
       minify_html: true
