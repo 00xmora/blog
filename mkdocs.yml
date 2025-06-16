@@ -12,6 +12,17 @@ theme:
   logo: assets/images/logo.png
   icon:
     repo: fontawesome/brands/github
+    social:
+      # GitHub
+      - icon: fontawesome/brands/github
+        link: https://github.com/00xmora
+      # Twitter/X
+      - icon: fontawesome/brands/x-twitter
+        link: https://twitter.com/00xmora
+      # LinkedIn
+      - icon: fontawesome/brands/linkedin
+        link: https://www.linkedin.com/in/00xmora
+
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -38,6 +49,7 @@ theme:
     - navigation.footer
     - navigation.expand
     - navigation.tracking
+    - navigation.sections  # For collapsible sections
     - navigation.top
     - navigation.instant.preview
     - navigation.instant.progress
@@ -73,32 +85,39 @@ plugins:
   - search
   - git-revision-date-localized
   - meta
+
+  - minify:
+      minify_html: true
+
   - social:
       cards: true
       cards_layout_options:
         color: "#ffffff"
         font_family: Bebas Neue
         logo: assets/images/logo.png
-  - minify:
-      minify_html: true
-  - sitemap
-
-  - blogging:
-      post_dir: 'writeups/'  # Folder containing your posts
-      post_filename: 'index.md'  # Each post is a folder with index.md
-      archive: true  # Generates an archive page
-      pagination: 10  # Posts per page
-      feed: true  # RSS feed
-      social: true  # OpenGraph/Twitter cards
 
 
 
 nav:
-  - Home: /
-  - Writeups: writeups/
-  - Research & things: research/
-  - About: about/
+  - Home: index.md
+  - Writeups:
+      - Overview: writeups/index.md
+      - Android: writeups/android/index.md
+  - Research: research/index.md
+  - About: about.md
+
+
 
 
 extra:
   favicon: assets/images/logo.png
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/00xmora
+      name: GitHub
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/00xmora
+      name: Twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/00xmora
+      name: LinkedIn

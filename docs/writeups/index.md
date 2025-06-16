@@ -1,3 +1,8 @@
+---
+title: Writeups
+date: 2023-01-01
+---
+
 # Writeups
 
 Welcome to the writeups section.  
