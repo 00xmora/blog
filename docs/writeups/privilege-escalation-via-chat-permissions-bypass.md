@@ -1,12 +1,14 @@
 ---
 title: Privilege Escalation via Chat Permissions Bypass
 description: A real-world case where UI-level permission controls were not enforced at the API level, allowing message sending and user impersonation.
+summary: A real-world case where UI-level permission controls were not enforced at the API level, allowing message sending and user impersonation.
 date: 2024-02-07
 tags:
   - privilege-escalation
   - access-control
   - api-security
   - bug-bounty
+read_time: 3 minute read
 ---
 
 # Privilege Escalation via Chat Permissions Bypass

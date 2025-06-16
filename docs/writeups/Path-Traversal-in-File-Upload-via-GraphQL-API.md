@@ -1,6 +1,7 @@
 ---
 title: Path Traversal in File Upload via GraphQL API
 description: A file upload endpoint accepted folder traversal sequences, enabling unauthorized file placement and abuse of signed Google Cloud Storage URLs.
+summary: A file upload endpoint accepted folder traversal sequences, enabling unauthorized file placement and abuse of signed Google Cloud Storage URLs.
 date: 2025-03-11
 tags:
   - path-traversal
@@ -8,6 +9,7 @@ tags:
   - graphql
   - gcp
   - bug-bounty
+read_time: 3 minute read
 ---
 
 # Path Traversal in File Upload via GraphQL API

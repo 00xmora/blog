@@ -43,6 +43,8 @@ def extract_frontmatter(filepath):
 
 def generate_index_files(base_dir):
     for root, dirs, files in os.walk(base_dir):
+        if os.path.abspath(root) == os.path.abspath("docs"):
+            continue
         md_files = [f for f in files if f.endswith(".md") and f != index_filename]
         if not md_files and not any(os.path.exists(os.path.join(root, d, index_filename)) for d in dirs):
             continue

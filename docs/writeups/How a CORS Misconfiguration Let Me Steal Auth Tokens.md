@@ -8,6 +8,8 @@ tags:
   - access-control
   - bug-bounty
   - web-security
+summary: "A critical CORS misconfiguration allowed stealing authentication tokens by abusing a wildcard-like origin match and Access-Control-Allow-Credentials: true."
+read_time: 3 minute read
 ---
 
 # How a CORS Misconfiguration Could Have Let Me Steal Auth Tokens
