@@ -69,7 +69,10 @@ def generate_index_files(base_dir):
                         date=date,
                         summary=summary
                     ),
-                    "sort_date": datetime.strptime(date, "%Y-%m-%d") if date else datetime.min
+                    "sort_date": datetime.combine(date, datetime.min.time()) if isinstance(date, datetime.date) else (
+                    datetime.strptime(date, "%Y-%m-%d") if isinstance(date, str) and date else datetime.min
+                    )
+
                 })
 
         # Process markdown files
