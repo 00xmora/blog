@@ -25,7 +25,7 @@ jobs:
           pip install mkdocs-material
           pip install mkdocs-material[optional]
           pip install mkdocs-section-index
-          pip install mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin mkdocs-sitemap
+          pip install mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
 
       - name: Generate scripts/writeups index
         run: python scripts/generate_Grid.py

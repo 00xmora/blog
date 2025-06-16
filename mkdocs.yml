@@ -85,9 +85,6 @@ plugins:
   - search
   - git-revision-date-localized
   - meta
-  - sitemap:
-      changefreq: daily
-      priority: 0.5
   - seo
 
   - minify:
